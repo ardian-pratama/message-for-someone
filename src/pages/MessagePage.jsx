@@ -22,6 +22,7 @@ export default function Message() {
 
 		return () => {
 			clearTimeout(showThankYouTimer);
+			setShowThankYou(false);
 		};
 	}, []);
 
@@ -42,7 +43,6 @@ export default function Message() {
 	];
 
 	return (
-		<div className='max-w-sm mx-auto'>
 			<div className='flex flex-col gap-2'>
 				{messages.map(({ text, textDelay, componentDelay }, index) => (
 					<motion.div
@@ -53,7 +53,7 @@ export default function Message() {
 							duration: 1,
 							delay: componentDelay ?? 0
 						}}
-						className='flex gap-2 w-96'
+						className='flex gap-2 justify-items-stretch'
 					>
 						<Avatar className='aspect-square h-8 w-8'>
 							<AvatarImage
@@ -93,7 +93,6 @@ export default function Message() {
 						</Card>
 					</ThankYouMessage>
 				)}
-			</div>
 		</div>
 	);
 }
